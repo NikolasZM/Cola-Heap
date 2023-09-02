@@ -7,11 +7,11 @@ public:
     T valor;
     Nodo<T>* next;
 
-    Nodo(T v,Nodo<T> *n = nullptr);
+    Nodo(T v, Nodo<T>* n = nullptr);
 };
 
 template<class T>
-Nodo<T>::Nodo(T v,Nodo<T> *n) {
+Nodo<T>::Nodo(T v, Nodo<T>* n) {
     valor = v;
     next = n;
 }
@@ -55,12 +55,16 @@ bool Cola<T>::pop(T& v) {
         v = head->valor;
         head = head->next;
         delete tmp;
+        if (!head) {
+            tail = head;
+        }
         return true;
     }
     else {
         cout << "Lista vacia.\n";
         return false;
     }
+
 }
 
 int main()
@@ -85,4 +89,23 @@ int main()
         cout << v;
     }
 
+    Lista1.push(7);
+    Lista1.push(8);
+    Lista1.push(53);
+    
+    if (Lista1.pop(v)) {
+        cout << v;
+    }
+    
+    if (Lista1.pop(v)) {
+        cout << v;
+    }
+    
+    if (Lista1.pop(v)) {
+        cout << v;
+    }
+    
+    if (Lista1.pop(v)) {
+        cout << v;
+    }
 }
